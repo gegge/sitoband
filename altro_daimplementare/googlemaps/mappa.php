@@ -3,7 +3,7 @@ session_start();
 ?>
 <html>
     <head>
-        <title>Distributors | Transfer Oil Test</title>
+        <title>titolo</title>
             <!-- INIZIO HEADER -->
             <?php include_once("./template_pagina/header.php"); ?>
             <!-- FINE HEADER -->
