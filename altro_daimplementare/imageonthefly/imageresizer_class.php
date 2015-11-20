@@ -65,6 +65,10 @@ class image_resizer
         echo "<br>";
         var_dump($this->height);
         echo "<br>";*/
+        imagealphablending($this->imageResized, false);
+        imagesavealpha($this->imageResized,true);
+        $transparent = imagecolorallocatealpha($this->imageResized, 255, 255, 255, 127);
+        imagefilledrectangle($this->imageResized, 0, 0, $optimalWidth, $optimalHeight, $transparent);
         imagecopyresampled($this->imageResized, $this->image, 0, 0, 0, 0, $optimalWidth, $optimalHeight, $this->width, $this->height);
      
         // *** if option is 'crop', then crop too
@@ -218,6 +222,9 @@ class image_resizer
                 $invertScaleQuality = 9 - $scaleQuality;*/
      
                 if (imagetypes() & IMG_PNG) {
+                    //imagecolortransparent($this->imageResized, 0);
+                    //imagealphablending($this->imageResized, false);
+                    //imagesavealpha($this->imageResized, true);
                     imagepng($this->imageResized/*, $savePath, $invertScaleQuality*/);
                 }
                 break;
