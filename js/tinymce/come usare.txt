@@ -1,0 +1,19 @@
+tinymce.init({
+                    selector: "#testo1",
+                    language: "it",
+                    schema: "html5",
+                    forced_root_block : false,
+                    plugins: [
+                        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen",
+                        "insertdatetime media nonbreaking save table contextmenu directionality",
+                        "emoticons template paste textcolor colorpicker textpattern imagetools"
+                    ],
+                    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+                    toolbar2: "print preview media | forecolor backcolor emoticons",
+                    image_advtab: true,
+                    convert_urls: false,
+                    relative_urls: false,
+                    force_br_newlines : false,
+                    table_cell_class_list : [{title:'SfondoBianc', value:'whitebackground'},{title: 'SfondoGrigio', value: 'greybackground'}, {title: 'SfondoGrigioChiaro', value: 'lightgreybackground'}, {title: 'SfondoNero', value: 'blackbackground'}, {title: 'SfondoGrigioScuro', value: 'bggray'}, {title: 'SfondoAranci', value: 'bgorange'}],
+                });

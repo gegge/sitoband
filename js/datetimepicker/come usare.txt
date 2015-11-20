@@ -1,0 +1,6 @@
+$("#datetimepicker").datetimepicker({
+                    theme: 'dark',
+                    format:'Y-m-d H:i',
+                    lang: 'it',
+                    defaultDate: new Date()
+                });

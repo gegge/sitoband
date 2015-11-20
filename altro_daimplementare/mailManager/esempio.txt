@@ -1,0 +1,60 @@
+include_once(FILE_CLASS_PHP_MAILER);
+    
+    $nome = "no-reply";
+    $cognome = "Transferoil";
+    $telefono = "+39 0521 3139";
+    $email = "noreply@transferoil.com";
+    $testo = "Configurator code: ";
+    
+    $nomemittente = $nome;
+    //$codicetabella = str_replace("<table>", "<table style=\"border: 2px; background-color: red;\">", $codicetabella);
+    // Sistemo le variabili nel messaggio che mi arriverà per email
+    $messaggio = file_get_contents(ROOT_DIR."/template_pagine/mail_template.html");
+    $messaggio = str_replace("_DEST_", $cognome_dest." ".$nome_dest, $messaggio);
+    $messaggio = str_replace("_LINKCONFIGURATORE_", VIEWCONFIGURATIONFILELOCATION."/$codice", $messaggio);
+    $messaggio = str_replace("_LINKCONFERMAORDINE_", ORDERCONFIRMFILELOCATION."/$idordine", $messaggio);
+    $messaggio = str_replace("_CODICECARRELLO_", $codice, $messaggio);
+    $messaggio = str_replace("_TABELLA_", $codicetabella, $messaggio);
+    $messaggio = str_replace("_TITLE_", "Mail da transferoil", $messaggio);
+    
+    $mail = new PHPMailer();
+    
+    $mail->IsSMTP(); 
+    // L'host remoto con cui spediremo, nel caso di gmail è smtp.gmail.com
+    $mail->Host = "192.168.150.1";
+    $mail->SMTPAuth = false;
+    
+    // Specifichiamo che vogliamo spedire tramite ssl, se non volete basta eliminare queste due righe
+    /*$mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;*/
+    
+    // Inseriamo i dati della casella che utilizzeremo per spedire
+    /*$mail->Username = "username";
+    $mail->Password = "password";*/
+    
+    // Se avete problemi con l'invio decommentatelo
+    // $mail->SMTPDebug = 1;
+    
+    $mail->From = "$email";
+    $mail->FromName = "$nomemittente";
+    
+    // Qui inseriamo l'indirizzo a cui recapitare le email spedite tramite il form
+    $mail->AddAddress($email_dest);
+    
+    //$mail->AddReplyTo("$email", "$nome");
+    
+    // Lunghezza massima delle stringhe
+    $mail->WordWrap = 50; 
+    
+    $mail->IsHTML(true);
+    
+    $mail->Subject = "Request Codes from Transferoil";
+    $mail->Body    = "$messaggio</b>";
+    $stato = "";
+    if($nome == "" || $cognome == "" || $email == "" || $testo == "")
+        $stato = "Non è stato compilato uno dei campi email (errore dell'azienda, controllare lo script)";
+    else
+        if($mail->Send())
+            $stato = "Mail inviata correttamente";
+        else
+            $stato = "Errore: ".$mail->ErrorInfo;

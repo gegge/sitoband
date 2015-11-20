@@ -1,0 +1,12 @@
+<?php
+require_once SQUEEZE_JS_CLASS;
+
+ob_start();
+include(JAVASCRIPT_FUNCTIONS_FILE);
+$output = ob_get_contents();
+ob_end_clean();
+
+$jSqueeze = new JSqueeze();
+$code = $jSqueeze->squeeze($output, true, false);
+echo $code;
+?>
