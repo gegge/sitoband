@@ -1,7 +1,7 @@
+        <footer class="footer">
+            <div class="footercopy">
+                Copyright 2015 Elle of Meteora Band &#169;
+            </div>
+        </footer>
     </body>
-    <footer>
-        <div class="footercopy">
-            All rights goes to Elle from Meteora band &#169;
-        </div>
-    </footer>
 </html>
