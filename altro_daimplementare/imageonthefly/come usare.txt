@@ -1,0 +1,3 @@
+<img src='/sitoband/thumbprodotto$percorso"."$nomeImg,280,0'>
+
+dove thumbprodotto è la pagina php e quello che viene dopo è una stringa che contiene posizione dell'immagine vera, width e height

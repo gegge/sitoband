@@ -44,7 +44,9 @@ class image_resizer
     
     public function resizeImage($newWidth, $newHeight, $option="auto")
     {
-     
+        
+        if($newHeight == 0)
+            $newHeight = $this->height - 30;
         // *** Get optimal width and height - based on $option
         $optionArray = $this->getDimensions($newWidth, $newHeight, strtolower($option));
      
