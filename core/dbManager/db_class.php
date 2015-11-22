@@ -47,10 +47,10 @@ class db_class
     
     public function cambiaPasswordAccount($username, $oldPassword, $newPassword)
     {
-        $oldShaPassHash = strtoupper(sha1($username.":".$oldPassword));
-        if($this->validaLogin($username, $oldPassword))
+        $oldShaPassHash = strtoupper(sha1(strtoupper($username).":".strtoupper($oldPassword)));
+        if($this->validaLogin(strtoupper($username), strtoupper($oldPassword)))
         {
-            $newShaPassHash = strtoupper(sha1($username.":".$newPassword));
+            $newShaPassHash = strtoupper(sha1(strtoupper($username).":".strtoupper($newPassword)));
             $query = $this->conn->prepare("UPDATE accounts SET password = ? WHERE username = ?;");
             $query->bind_param("ss", $newShaPassHash, $username);
             if($query->execute())
