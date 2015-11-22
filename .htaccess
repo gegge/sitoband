@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^loginadminmeteora    /core/loginManager/index.php [END]
+RewriteRule ^creaaccountmeteora    /core/accountManager/creaAccount/index.php [END]
+RewriteRule ^elaboraaccountmeteora/(.+)$    /core/accountManager/creaAccount/elaboraCreazione.php?data=$1 [END]
+RewriteRule ^elaboraloginmeteora/(.+)$    /core/loginManager/elaboralogin.php?data=$1 [END]

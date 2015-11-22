@@ -85,6 +85,14 @@ div.contenuto{
 	margin-bottom: 2%;
 }
 
+b{
+	font-weight: bold;
+}
+
+i{
+	font-style: italic;
+}
+
 /*h2 elements*/
 h2{
 	display: block;
@@ -114,4 +122,22 @@ footer{
 	bottom: 0;
 	left: 0;
 	padding: 1rem;
+}
+
+div.logincontainer{
+	text-align: center;
+}
+table#tabellalogin,
+table#tabellacreaaccount{
+	margin: 0 auto;
+	font-size: 1.7em;
+}
+table#tabellalogin input,
+table#tabellacreaaccount input{
+	background: transparent;
+	color: #AECAE1;
+	margin-top: 2%;
+}
+input#loginbtn{
+	
 }

@@ -1,4 +1,5 @@
 <?php
+include_once($_SERVER['DOCUMENT_ROOT']."/config.php");
 //header
 include("./template_pagine/header.php");
 ?>
@@ -7,10 +8,9 @@ include("./template_pagine/header.php");
     <div  class="contenuto">
         <!-- contenuto -->
         <div class="newscontainer">
-            <h2 class="titolonews">Titolo</h2>
-            <div class="newsbody">
-                questo è il contenuto della news cortooooooooooooo
-            </div>
+            <?php
+            $newsMGR->stampaNews();
+            ?>
         </div>
     </div>
 </div>
